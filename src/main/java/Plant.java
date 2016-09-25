@@ -12,6 +12,21 @@ public class Plant {
         this.plantName = plantName;
     }
 
+    public String getPlantName() { return this.plantName; }
+
+    public int getHealthyGrowthRate() { return this.healthyGrowthRate; }
+
+    public int getMinTemp() { return this.minTemp; }
+
+    public int getMaxTemp() { return this.maxTemp; }
+
+    public void setHealthyGrowthRate(int rate) { this.healthyGrowthRate = rate; }
+
+    public void setminTemp(int temp){ this.minTemp = temp; }
+
+    public void setMaxTemp(int temp) { this.maxTemp = temp; }
+
+
 
 
 }
