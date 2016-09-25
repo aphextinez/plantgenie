@@ -24,11 +24,11 @@ public class PickerUtil {
         }
         //otherwise return sum total of votes for categories that are present in categories List
         else {
-            return plantVoteMap.entrySet()
-                    .stream()
-                    .filter(n -> categories.contains(n.getKey()))   //filter to Stream containing category/votes where category key is present in categories List
-                    .mapToInt(n -> n.getValue())   //map each category's number of votes value to IntStream
-                    .sum();   //get sum over IntStream
+            //from categories List of UpvoteCategories to consider, get IntStream of upvoteCount from plantVoteMap
+            // and then get total sum over that IntStream to return
+            return categories.stream().mapToInt(plantVoteMap::get).sum();
         }
     }
+
+
 }
