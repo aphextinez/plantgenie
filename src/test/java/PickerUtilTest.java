@@ -44,8 +44,28 @@ public class PickerUtilTest {
         testPlants.add(plant1);
         testPlants.add(plant2);
         testPlants.add(plant3);
-        ArrayList<Plant> retPlants = PickerUtil.getPlantsInGrowthCategory(testPlants, PlantConstants.GrowthCategory.SLOW);
+        List<Plant> retPlants = PickerUtil.getPlantsInGrowthCategory(testPlants, PlantConstants.GrowthCategory.SLOW);
         Assert.assertEquals(plant2, retPlants.get(0));
+    }
+
+    @Test
+    public void getPlantsInTempRageTest() {
+        Plant plant1 = new Plant("fern");
+        plant1.setMaxTemp(100);
+        plant1.setMinTemp(50);
+        Plant plant2 = new Plant("banana tree");
+        plant2.setMaxTemp(120);
+        plant2.setMinTemp(80);
+        Plant plant3 = new Plant("wheat");
+        plant3.setMaxTemp(120);
+        plant3.setMinTemp(49);
+        List<Plant> testPlants = new ArrayList<Plant>();
+        testPlants.add(plant1);
+        testPlants.add(plant2);
+        testPlants.add(plant3);
+        List<Plant> retPlants = PickerUtil.getPlantsInTempRange(testPlants,50, 120);
+        Assert.assertEquals(plant3, retPlants.get(0));
+
     }
 
 

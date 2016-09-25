@@ -22,7 +22,7 @@ public class Plant {
 
     public void setHealthyGrowthRate(int rate) { this.healthyGrowthRate = rate; }
 
-    public void setminTemp(int temp){ this.minTemp = temp; }
+    public void setMinTemp(int temp){ this.minTemp = temp; }
 
     public void setMaxTemp(int temp) { this.maxTemp = temp; }
 

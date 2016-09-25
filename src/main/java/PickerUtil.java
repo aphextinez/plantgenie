@@ -9,13 +9,12 @@ import java.util.stream.Stream;
 public class PickerUtil {
 
 
-  /*  public static List<String> getPlantsInTempRange(List<Plant> plants, int min, int max) {
-        return plants.stream()
-                .filter(isPlantInClimateRange(min,max))
-                .collect(Collectors.toList());
-    }*/
+    public static List<Plant> getPlantsInTempRange(List<Plant> plants, int min, int max) {
+        return filterPlantListWithPredicate(plants, isPlantInClimateRange(min,max));
+    }
 
-    public static ArrayList<Plant> getPlantsInGrowthCategory(List<Plant> plants, PlantConstants.GrowthCategory category) {
+
+    public static List<Plant> getPlantsInGrowthCategory(List<Plant> plants, PlantConstants.GrowthCategory category) {
         Predicate p = null;
         if (category == PlantConstants.GrowthCategory.FAST) {
             p = isFastGrowthRate();
@@ -29,13 +28,12 @@ public class PickerUtil {
         else {
             //TODO ERROR on not being in valid growth category
         }
-        ArrayList<Plant> trimmedPlantList = filterPlantListWithPredicate(plants,p);
+        List<Plant> trimmedPlantList = filterPlantListWithPredicate(plants,p);
         return trimmedPlantList;
     }
 
-    public static ArrayList<Plant> filterPlantListWithPredicate(List<Plant> plants, Predicate<Plant> p) {
-        ArrayList<Plant> trimmedPlantList = (ArrayList<Plant>)plants.stream().filter(p).collect(Collectors.toList());
-        return trimmedPlantList;
+    public static List<Plant> filterPlantListWithPredicate(List<Plant> plants, Predicate<Plant> p) {
+        return plants.stream().filter(p).collect(Collectors.toList());
     }
 
     /*
@@ -53,7 +51,7 @@ public class PickerUtil {
     }
 
     private static Predicate<Plant> isPlantInClimateRange(int min, int max) {
-        return p -> p.getMinTemp() >= min && p.getMaxTemp() <= max;
+        return p -> p.getMinTemp() <= min && p.getMaxTemp() >= max;
     }
 
     private static Predicate<Plant> isSlowGrowthRate() {
