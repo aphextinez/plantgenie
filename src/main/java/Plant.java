@@ -1,13 +1,20 @@
 /**
  * Created by aphexTinez on 9/24/16.
+ *
+ * Plant is a class that is used to describe the plants that will be the focus of plant genie,
+ * which for now simply means having the attributes that will be considered during plant selection.
+ *
  */
 public class Plant {
 
-    public final String plantName;
-    public int healthyGrowthRate;
-    public int minTemp;
-    public int maxTemp;
+    public final String plantName;   //the plant's name
+    public int healthyGrowthRate;    //what can be considered the typical growth rate of a healthy instance of this plant
+    public int minTemp;              //the minimum temperature that the plant can tolerate
+    public int maxTemp;              //the maximum temperature that the plant can tolerate
 
+    /**
+     *  Class constructor
+     */
     public Plant(String plantName) {
         this.plantName = plantName;
     }
