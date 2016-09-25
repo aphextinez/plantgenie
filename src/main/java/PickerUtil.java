@@ -22,7 +22,6 @@ public class PickerUtil {
         if (categories.size() == totalCategories) {
             return plantVoteMap.values().stream().mapToInt(n -> n).sum();
         }
-        //otherwise return sum total of votes for categories that are present in categories List
         else {
             //from categories List of UpvoteCategories to consider, get IntStream of upvoteCount from plantVoteMap
             // and then get total sum over that IntStream to return
