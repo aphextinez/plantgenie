@@ -7,6 +7,9 @@ import org.junit.Test;
 import org.junit.Assert;
 
 /**
+ *
+ * Test class to test the functionality of the PickerUtil
+ *
  * Created by aphexTinez on 9/24/16.
  */
 
@@ -15,12 +18,12 @@ public class PickerUtilTest {
     @Test
     public void getTotalUpvotesTest() {
 
-        Map<UpvoteCategory,Integer> voteMap = new HashMap<UpvoteCategory,Integer>();
+        Map<UpvoteCategory,Integer> voteMap = new HashMap<>();
         voteMap.put(UpvoteCategory.DISEASE_RESISTANCE, 700);
         voteMap.put(UpvoteCategory.PESK_RESISTANCE, 500);
         voteMap.put(UpvoteCategory.OVERALL_EASE, 800);
 
-        ArrayList<UpvoteCategory> categories = new ArrayList<UpvoteCategory>();
+        ArrayList<UpvoteCategory> categories = new ArrayList<>();
         categories.add(UpvoteCategory.DISEASE_RESISTANCE);
         categories.add(UpvoteCategory.OVERALL_EASE);
 
@@ -40,12 +43,16 @@ public class PickerUtilTest {
         plant2.setHealthyGrowthRate(5);
         Plant plant3 = new Plant("maple");
         plant3.setHealthyGrowthRate(120);
-        List<Plant> testPlants = new ArrayList<Plant>();
+        List<Plant> testPlants = new ArrayList<>();
         testPlants.add(plant1);
         testPlants.add(plant2);
         testPlants.add(plant3);
         List<Plant> retPlants = PickerUtil.getPlantsInGrowthCategory(testPlants, PlantConstants.GrowthCategory.SLOW);
         Assert.assertEquals(plant2, retPlants.get(0));
+        retPlants = PickerUtil.getPlantsInGrowthCategory(testPlants, PlantConstants.GrowthCategory.MEDIUM);
+        Assert.assertEquals(plant1, retPlants.get(0));
+        retPlants = PickerUtil.getPlantsInGrowthCategory(testPlants, PlantConstants.GrowthCategory.FAST);
+        Assert.assertEquals(plant3, retPlants.get(0));
     }
 
     @Test
@@ -59,7 +66,7 @@ public class PickerUtilTest {
         Plant plant3 = new Plant("wheat");
         plant3.setMaxTemp(120);
         plant3.setMinTemp(49);
-        List<Plant> testPlants = new ArrayList<Plant>();
+        List<Plant> testPlants = new ArrayList<>();
         testPlants.add(plant1);
         testPlants.add(plant2);
         testPlants.add(plant3);

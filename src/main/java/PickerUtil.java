@@ -33,7 +33,7 @@ public class PickerUtil {
      * @return the list of plants that have qualified as being in the desired growth speed category
      */
     public static List<Plant> getPlantsInGrowthCategory(List<Plant> plants, PlantConstants.GrowthCategory category) {
-        Predicate p = null;
+        Predicate<Plant> p;
         switch(category) {
             case SLOW:
                 p = isSlowGrowthRate();
@@ -48,8 +48,7 @@ public class PickerUtil {
                 throw new IllegalArgumentException("Invalid GrowthCategory!");
         }
 
-        List<Plant> trimmedPlantList = filterPlantListWithPredicate(plants,p);
-        return trimmedPlantList;
+        return filterPlantListWithPredicate(plants,p);
     }
 
     /**
@@ -66,6 +65,10 @@ public class PickerUtil {
     /**
      *  Returns the total number of upvotes a Plant has received in the plant genie community in the categories
      *  of interest
+     *
+     *  Right now this function assumes that the plantVoteMap will have an UpvoteCategory for every valid upvote
+     *  category available, and that if it has received 0 upvotes in that category it will have 0 there. If a category is
+     *  passed in the categories list that is not present in the plantVoteMap a NullPointerException will be thrown.
      *
      *  @param plantVoteMap is Map for the Plant of interest where key is the category of upvotes, and int value is the
      *  the number of upvotes the plant received for that category
