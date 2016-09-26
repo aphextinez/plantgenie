@@ -1,0 +1,8 @@
+The idea is for plantgenie to help in selecting plants that would be good for someone to get, based on criteria such as 
+the climate they can survive in, how quickly or slowly they grow, and how many upvotes they have received in the plantgenie community. 
+
+People can "upvote" a plant in different desirable categories if they think it is good for that category,
+and that can help in the selection of plants for other people. 
+
+This is *NOT* complete, and is just a beginning to show coding style particlarly in the PickerUtil.java,
+which has a start of some base functionality for plant selection in the plantgenie. 
