@@ -34,18 +34,20 @@ public class PickerUtil {
      */
     public static List<Plant> getPlantsInGrowthCategory(List<Plant> plants, PlantConstants.GrowthCategory category) {
         Predicate p = null;
-        if (category == PlantConstants.GrowthCategory.FAST) {
-            p = isFastGrowthRate();
+        switch(category) {
+            case SLOW:
+                p = isSlowGrowthRate();
+                break;
+            case MEDIUM:
+                p = isMediumGrowthRate();
+                break;
+            case FAST:
+                p = isFastGrowthRate();
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid GrowthCategory!");
         }
-        else if (category == PlantConstants.GrowthCategory.MEDIUM) {
-            p = isMediumGrowthRate();
-        }
-        else if (category == PlantConstants.GrowthCategory.SLOW) {
-            p = isSlowGrowthRate();
-        }
-        else {
-            //TODO ERROR on not being in valid growth category
-        }
+
         List<Plant> trimmedPlantList = filterPlantListWithPredicate(plants,p);
         return trimmedPlantList;
     }
