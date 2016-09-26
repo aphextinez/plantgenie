@@ -66,7 +66,7 @@ public class PickerUtil {
      *  Returns the total number of upvotes a Plant has received in the plant genie community in the categories
      *  of interest
      *
-     *  Right now this function assumes that the plantVoteMap will have an UpvoteCategory for every valid upvote
+     *  NOTE: Right now this function assumes that the plantVoteMap will have an UpvoteCategory for every valid upvote
      *  category available, and that if it has received 0 upvotes in that category it will have 0 there. If a category is
      *  passed in the categories list that is not present in the plantVoteMap a NullPointerException will be thrown.
      *

@@ -62,7 +62,7 @@ public class PickerUtilTest {
         plant1.setMinTemp(50);
         Plant plant2 = new Plant("banana tree");
         plant2.setMaxTemp(120);
-        plant2.setMinTemp(80);
+        plant2.setMinTemp(79);
         Plant plant3 = new Plant("wheat");
         plant3.setMaxTemp(120);
         plant3.setMinTemp(49);
